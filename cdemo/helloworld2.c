@@ -2,9 +2,7 @@
 
 int main()
 {
-printf("Hello World!\n");
-printf("CCA\n");
-printf("APCSP\n");
+printf("Hello World!\nCCA\nAPCSP\n");
 
 return 0;
 }
