@@ -5,17 +5,20 @@
 struct Student{
 	char first[50];
 	char last[50];
-	int  age;
-	int id;
+	int  age[50];
+	int id[50];
 };
 
-void printStudent(struct Student * student)
+void printStudent(struct Student studArr[50], int num)
 {
-	printf("The student is  -\n");
-	printf(" First name: %s\n",student->first);
-	printf(" Last name: %s\n" ,student->last);
-	printf(" Age: %d\n", student->age);
-	printf(" Student ID: %d\n", student->id);
+	for (int i = 1; i <= num; i++)
+	{
+		printf("\nStudent %d is:\n", i);
+		printf(" First name: %s\n", studArr[i].first);
+		printf(" Last name: %s\n" ,studArr[i].last);
+		printf(" Age: %d\n", *studArr[i].age);
+		printf(" Student ID: %d\n", *studArr[i].id);
+	}
 }
 
 
@@ -34,7 +37,6 @@ int main()
 	int num = 1;
 	int repeat = 0;
 	char input[256];
-
 	char str[256];
 
 while (repeat == 0)
@@ -43,42 +45,43 @@ while (repeat == 0)
 	fgets(input, 256, stdin);
 	sscanf(input, "%s",  studArr[num].first);
 
-	printf("\nEnter the last name of student %d: ", num);
+	printf("Enter the last name of student %d: ", num);
 	fgets(input, 256, stdin);
 	sscanf(input, "%s", studArr[num].last);
 
-	printf("\nEnter the age of student %d: ", num);
+	printf("Enter the age of student %d: ", num);
 	while (1)
 	{
 		fgets(input, 256, stdin);
 		if (sscanf(input, "%d", studArr[num].age) == 1) break;
-		printf("\nNot a valid number. Try again!\n");
+		printf("Not a valid number. Try again!\n");
 	}
 
-	printf("\nEnter the id number of student %d: ", num);
+	printf("Enter the id number of student %d: ", num);
 	while (1)
 	{
 		fgets(input, 256, stdin);
 		if (sscanf(input, "%d", studArr[num].id) == 1) break;
-		printf("\nNot a valid number. Try again!\n");
+		printf("Not a valid number. Try again!\n");
 	}
 
-	printf("\nDo you want to enter another student? yes/no: ");
+	printf("Do you want to enter another student? yes/no: ");
 	fgets(input, 256, stdin);
-	sscanf(input, "%s", str);
-	if (strcmp(str, "no")
+	sscanf(input, "%s", input);
+	printf("\n");
+	if (strcmp(input, "no") == 0)
 	{
 		repeat = 1;
+		break;
 	}
-	
-	num++;
+	else
+	{
+		num++;
+	}	
 
 }
 
-	for (int i = 0; i < num; i++)
-	{
-		printStudent(studArr);
-	}
+	printStudent(studArr, num);
 
 }
 
