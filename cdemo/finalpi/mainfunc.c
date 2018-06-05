@@ -5,6 +5,7 @@
 
 int randint() {
 	int num = (rand() % (12)) + 1;
+  return num;
 }
 
 int intro() {
@@ -65,14 +66,14 @@ int user(int pscore) {
 }
 
 int dealer(int pscore, int dfirst) {
+	int dealertotal;
 	if (pscore <= 21) {
 		int d2 = randint();
-		int dealertotal = dfirst + d2;
-		printf(
-			"\nThe dealer turns over the hidden card. It is a(n) %d, so their "
-			"total is %d.",
-			d2,
-			dealertotal);
+		dealertotal = dfirst + d2;
+		printf("\nThe dealer turns over the hidden card. It is a(n) %d, so their "
+			"total is %d.", d2, dealertotal);
+		if (dealertotal > 21) {
+			printf("\nThe dealer busted! You win!");}
 		while (dealertotal < 17) {
 			int dnew = randint();
 			dealertotal = dealertotal + dnew;
@@ -86,6 +87,6 @@ int dealer(int pscore, int dfirst) {
 				break;
 			}
 		}
-		return dealertotal;
 	}
+	return dealertotal;
 }
