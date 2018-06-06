@@ -34,6 +34,8 @@ int firstdealp() {
 	// player's score
 	int ptotal = p1 + p2;
 	printf("\nYou got a(n) %d and a(n) %d for a total of %d.", p1, p2, ptotal);
+	if (ptotal > 21) {
+		 printf("\nYou busted! The dealer wins...");}
 	return ptotal;
 }
 

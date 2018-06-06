@@ -15,18 +15,23 @@ int main(void) {
       break;
 	  } else {
       int dbegin = firstdeald();
-      int pfinal = user(firstdealp());
-      int dfinal = dealer(pfinal, dbegin);
-      if (pfinal <= 21 && dfinal <= 21)
+      int pbegin = firstdealp();
+      int pfinal;
+      int dfinal;
+      if (pbegin <= 21)
       {
-        printf("\nYou have %d, while the dealer has %d.", pfinal, dfinal);
-	      if (pfinal > dfinal) {
+	      pfinal = user(pbegin);
+              dfinal = dealer(pfinal, dbegin);
+	      if (pfinal <= 21 && dfinal <= 21)
+     	      {
+             	 printf("\nYou have %d, while the dealer has %d.", pfinal, dfinal);
+	     	 if (pfinal > dfinal) {
 		      printf("\nYou win!");
-	      } else if (pfinal < dfinal) {
+	     	 } else if (pfinal < dfinal) {
 		      printf("\nYou lose...");
-	      } else if (pfinal == dfinal) {
-		      printf("\nIt was a tie.");
-  	    }
+	     	 } else if (pfinal == dfinal) {
+		      printf("\nIt was a tie."); }
+	      }
       }
       
       printf("\n\nWould you like to play again? (yes/no) ");
