@@ -28,15 +28,16 @@ int main(void) {
 			if (pfinal > dfinal) {
 		     		printf("\nYou win!");
 				char messagewin[] = "You win!\n";
-				output(messagewin, 10);
+				output(messagewin, 9);
 	     	 	} else if (pfinal < dfinal) {
 		      		printf("\nYou lose...");
 	     			char messagelose[] = "You lose...\n";
-				output(messagelose, 13);
+				output(messagelose, 12);
 			} else if (pfinal == dfinal) {
-		      		printf("\nIt was a tie."); }
+		      		printf("\nIt was a tie."); 
 				char messagetie[] = "It was a tie.\n";
-				output(messagetie, 16);
+				output(messagetie, 15);
+			}
 	      }
       }
       

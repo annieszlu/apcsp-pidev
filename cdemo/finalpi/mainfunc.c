@@ -12,7 +12,7 @@ void output(char outputArr[], int n)
 {
 	FILE *fp;
 
-	fp = fopen ("/home/student4/website/output.txt", "wb");
+	fp = fopen ("/home/student4/website/output.txt", "w");
 
 	if (fp)
 	{
