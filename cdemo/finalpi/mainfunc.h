@@ -1,5 +1,7 @@
 int randint();
 
+int output(char message[], int n);
+
 int intro();
 
 int firstdealp();

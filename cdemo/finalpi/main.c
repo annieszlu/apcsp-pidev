@@ -24,13 +24,19 @@ int main(void) {
               dfinal = dealer(pfinal, dbegin);
 	      if (pfinal <= 21 && dfinal <= 21)
      	      {
-             	 printf("\nYou have %d, while the dealer has %d.", pfinal, dfinal);
-	     	 if (pfinal > dfinal) {
-		      printf("\nYou win!");
-	     	 } else if (pfinal < dfinal) {
-		      printf("\nYou lose...");
-	     	 } else if (pfinal == dfinal) {
-		      printf("\nIt was a tie."); }
+			printf("\nYou have %d, while the dealer has %d.", pfinal, dfinal); 
+			if (pfinal > dfinal) {
+		     		printf("\nYou win!");
+				char messagewin[] = "You win!\n";
+				output(messagewin, 10);
+	     	 	} else if (pfinal < dfinal) {
+		      		printf("\nYou lose...");
+	     			char messagelose[] = "You lose...\n";
+				output(messagelose, 13);
+			} else if (pfinal == dfinal) {
+		      		printf("\nIt was a tie."); }
+				char messagetie[] = "It was a tie.\n";
+				output(messagetie, 16);
 	      }
       }
       

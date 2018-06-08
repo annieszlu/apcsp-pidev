@@ -11,9 +11,8 @@ int randint() {
 void output(char outputArr[], int n)
 {
 	FILE *fp;
-	int value;
 
-	fp = fopen ("/home/dev/cdemo/finalpi/student4/output.txt", "wb");
+	fp = fopen ("/home/student4/website/output.txt", "wb");
 
 	if (fp)
 	{
@@ -53,8 +52,9 @@ int firstdealp() {
 	int ptotal = p1 + p2;
 	printf("\nYou got a(n) %d and a(n) %d for a total of %d.", p1, p2, ptotal);
 	if (ptotal > 21) {
-		 printf("\nYou busted! The dealer wins...");}
-		 
+		printf("\nYou busted! The dealer wins...");}
+		char message[] = "You busted! The dealer wins...\n";
+		output(message, 32);
 	return ptotal;
 }
 
@@ -76,6 +76,8 @@ int user(int pscore) {
 		printf("\nYou got a(n) %d for a new total of %d.", pnew, pscore);
 		if (pscore > 21) {
 			printf("\nYou busted! The dealer wins.");
+			char message[] = "You busted! The dealer wins...\n";
+              		output(message, 32);
 			break;
 		} else {
 			printf("\nYou have %d. Would you like to hit or stay? ", pscore);
@@ -95,6 +97,8 @@ int dealer(int pscore, int dfirst) {
 			"total is %d.", d2, dealertotal);
 		if (dealertotal > 21) {
 			printf("\nThe dealer busted! You win!");}
+			char message[] = "The dealer busted! You win!\n";
+                	output(message, 29);
 		while (dealertotal < 17) {
 			int dnew = randint();
 			dealertotal = dealertotal + dnew;
@@ -105,6 +109,8 @@ int dealer(int pscore, int dfirst) {
 				dealertotal);
 			if (dealertotal > 21) {
 				printf("\nThe dealer busted! You win!");
+				char message[] = "The dealer busted! You win!\n";
+                        	output(message, 29);
 				break;
 			}
 		}
