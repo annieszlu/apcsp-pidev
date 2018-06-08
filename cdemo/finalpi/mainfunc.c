@@ -8,6 +8,24 @@ int randint() {
   return num;
 }
 
+void output(char outputArr[], int n)
+{
+	FILE *fp;
+	int value;
+
+	fp = fopen ("/home/dev/cdemo/finalpi/student4/output.txt", "wb");
+
+	if (fp)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			fputc (outputArr[i], fp);
+		}
+	fclose (fp);
+	}
+
+}
+
 int intro() {
 	printf("Welcome! I would like to play Blackjack.\n\nRules: in Blackjack, "
 		   "the higher score wins as long as it's less than or equal to "
@@ -36,6 +54,7 @@ int firstdealp() {
 	printf("\nYou got a(n) %d and a(n) %d for a total of %d.", p1, p2, ptotal);
 	if (ptotal > 21) {
 		 printf("\nYou busted! The dealer wins...");}
+		 
 	return ptotal;
 }
 
